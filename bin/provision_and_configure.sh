@@ -18,7 +18,7 @@ else
 fi
 
 #CREDS OPENSTACK FOR SWIFT ACCESS
-VARFILE=roles/common/vars/main.yml
+VARFILE=roles/vars/openstack
 echo cluster_user: ${linux}  > $VARFILE
 echo cluster_group: ${linux} >> $VARFILE
 echo keystone_auth: $OS_AUTH_URL >> $VARFILE
