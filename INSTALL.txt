@@ -1,5 +1,7 @@
 
 # required package ubuntu
+
+# sudo apt-get update
 sudo apt-get install --yes python python-dev python-openstackclient python-swiftclient  python-pip libffi-dev libssl-dev libyaml-dev
 # pip package
 sudo pip install -r pip_packages_requirements.txt

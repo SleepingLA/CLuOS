@@ -1,5 +1,6 @@
 #! /bin/bash
 # ADD to your .bashrc
+# source ~/CLuOS/bin/source_env.sh
 
 # modify path if needed
 CLUOSDIR=$HOME/CLuOS/
