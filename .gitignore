@@ -1,0 +1,7 @@
+ansible/hosts.prod
+ansible/nodes.prod
+ansible/*.retry
+ansible/newkey.priv
+ansible/newkey.pub
+ansible/roles/ssh/templates/*
+ansible/roles/vars/openstack
