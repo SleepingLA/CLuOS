@@ -34,6 +34,7 @@ echo user_password: $OS_PASSWORD  >> $VARFILE
 # key.priv onetimer creation
 if [ ! -e roles/ssh/templates/cluster_rsa ] ; then
  ansible-playbook os-keygen.yml
+ mkdir -p roles/ssh/templates/
  cp newkey.priv roles/ssh/templates/cluster_rsa
  cp newkey.pub roles/ssh/templates/cluster_rsa.pub
 fi 
