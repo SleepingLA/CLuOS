@@ -1,13 +1,24 @@
-[hadoop-master]
-{{ hostvars[inventory_hostname]['ansible_hostname']  }}  ansible_host={{ hostvars[inventory_hostname]['ansible_eth0']['ipv4']['address'] }}  ansible_connection=local
+[master]
+{{ hostvars[inventory_hostname]['ansible_hostname']  }}  ansible_host={{ hostvars[inventory_hostname]['ansible_all_ipv4_addresses'][0] }}  ansible_connection=local
 
-[hadoop-data]
+[slaves]
 {% for host in newnodes.results %}
-{{ host['server']['name'] }} ansible_host={{ host['server']['private_v4'] }} ansible_connection=ssh  ansible_ssh_user=centos   ansible_ssh_private_key_file=~/.ssh/{{ keypair.key.name }}
+{{ host['server']['name'] }} ansible_host={{ host['server']['private_v4'] }} ansible_connection=ssh  ansible_ssh_user=centos   ansible_ssh_private_key_file=~/.ssh/{{ key_name }}
 {% endfor %}
 
-[hadoop-master:vars]
+[slaves-manual]
+{{ hostvars[inventory_hostname]['ansible_hostname']  }}  ansible_host={{ hostvars[inventory_hostname]['ansible_all_ipv4_addresses'][0] }}  ansible_connection=local
+{% for host in newnodes.results %}
+{{ host['server']['name'] }} ansible_host={{ host['server']['private_v4'] }} ansible_connection=ssh  ansible_ssh_user=centos   ansible_ssh_private_key_file=~/.ssh/{{ key_name }}
+{% endfor %}
+
+
+
+[master:vars]
 nodesfile=nodes.prod
 
-[hadoop-data:vars]
+[slaves:vars]
+nodesfile=nodes.prod
+
+[slaves-manual:vars]
 nodesfile=nodes.prod

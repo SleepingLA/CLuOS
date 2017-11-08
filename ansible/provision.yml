@@ -10,6 +10,7 @@
   hosts: localhost
   vars_files:
     - vars/provision.vars
+    - roles/vars/os
 
   tasks:
     - name: Connect to the OS Cloud
@@ -51,10 +52,20 @@
 #    - debug: var=newnodes.results
 
     - name: create static inventory
+      when: is_ubuntu
       template: src=template/templatehost.j2 dest=./hosts.prod
 
-    - name:  create node varaible inventory
+    - name:  create node variable inventory
+      when: is_ubuntu
       template: src=template/templatenode.j2 dest=./nodes.prod
+
+    - name: create static inventory
+      when: is_centos
+      template: src=template/template_centos/templatehost.j2 dest=./hosts.prod
+
+    - name:  create node variable inventory
+      when: is_centos
+      template: src=template/template_centos/templatenode.j2 dest=./nodes.prod
 
 
 ##############################################################################
