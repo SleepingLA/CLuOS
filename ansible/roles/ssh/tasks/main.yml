@@ -49,6 +49,19 @@
       UserKnownHostsFile=/dev/null
   with_items: "{{ nodes }}"
 
+- name: prepare ssh config hostname
+  blockinfile: 
+    dest: /home/{{ cluster_user }}/.ssh/config
+    create: yes
+    state: present
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.hostname }}.novalocal"
+    block: |
+      Host {{ item.hostname }}.novalocal 
+      StrictHostKeyChecking no
+      IdentityFile /home/{{ cluster_user }}/.ssh/cluster_rsa
+      UserKnownHostsFile=/dev/null
+  with_items: "{{ nodes }}"
+
 - name: prepare ssh config ip 0.0.0.0
   blockinfile: 
     dest: /home/{{ cluster_user }}/.ssh/config
