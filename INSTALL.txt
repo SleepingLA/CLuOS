@@ -19,3 +19,4 @@ sudo yum install -y python2-pip
 
 sudo pip install --upgrade pip
 sudo pip install shade ansible
+sudo pip install python-openstackclient

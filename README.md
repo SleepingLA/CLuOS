@@ -5,7 +5,7 @@ simple virtual linux cluster automated provisioning for private OpenStack
 First steps
 
 - Install required packages
-- Add bin/source_env.sh to login shell
+- Add bin/source_env.sh to login shell  --> Edit .bash_profile  # source ~/CLuOS/bin/source_env.sh
 - Relog to enter Openstack Credentials
 
 Launch cluster
