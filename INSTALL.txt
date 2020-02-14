@@ -11,12 +11,12 @@ sudo pip install pyOpenSSL
 
 
 # required package centos
-sudo yum install -y  epel-release
+#sudo yum install -y  epel-release
 
-sudo yum install -y git gcc time 
-sudo yum install -y python-devel libffi-devel openssl-devel libyaml-devel
-sudo yum install -y python2-pip
+#sudo yum install -y git gcc time 
+#sudo yum install -y python-devel libffi-devel openssl-devel libyaml-devel
+#sudo yum install -y python2-pip
 
-sudo pip install --upgrade pip
-sudo pip install shade ansible
-sudo pip install python-openstackclient
+#sudo pip install --upgrade pip
+#sudo pip install shade ansible
+#sudo pip install python-openstackclient
